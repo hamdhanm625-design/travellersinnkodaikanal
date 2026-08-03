@@ -1,0 +1,56 @@
+{
+  "version": 2,
+  "name": "travellers-inn-kodaikanal",
+  "builds": [
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "css/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/health",
+      "dest": "/api/health.js"
+    },
+    {
+      "src": "/api/bookings/(.*)",
+      "dest": "/api/bookings.js?id=$1"
+    },
+    {
+      "src": "/api/bookings",
+      "dest": "/api/bookings.js"
+    },
+    {
+      "src": "/api/estimate",
+      "dest": "/api/estimate.js"
+    },
+    {
+      "src": "/api/reviews",
+      "dest": "/api/reviews.js"
+    },
+    {
+      "src": "/api/admin/stats",
+      "dest": "/api/stats.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}

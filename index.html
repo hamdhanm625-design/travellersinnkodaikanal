@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travellers Inn Tours & Travels | Kodaikanal Taxi Service, Tours & Airport Transfers</title>
+  <meta name="description" content="Book a trusted Kodaikanal taxi service with Travellers Inn Tours & Travels. Premium airport transfers, sightseeing tours, Madurai to Kodaikanal cab service, and family-friendly hill travel with Sulthan Ibrahim.">
+  <meta name="keywords" content="Kodaikanal taxi service, Kodaikanal tour packages, Kodaikanal cab service, Madurai to Kodaikanal taxi, airport pickup Kodaikanal, Kodaikanal sightseeing, Sulthan Ibrahim, Travellers Inn Kodaikanal">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="author" content="Travellers Inn Tours & Travels">
+  <meta name="theme-color" content="#0d9488">
+  <link rel="canonical" href="https://travellersinnkodaikanal.vercel.app/">
+  <meta property="og:title" content="Travellers Inn Tours & Travels | Kodaikanal Taxi Service & Tours">
+  <meta property="og:description" content="Reliable Kodaikanal taxi service, airport transfers, sightseeing tours, and premium hill travel from Travellers Inn.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://travellersinnkodaikanal.vercel.app/">
+  <meta property="og:image" content="https://travellersinnkodaikanal.vercel.app/assets/hero_cab.jpg">
+  <meta property="og:site_name" content="Travellers Inn Tours & Travels">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Travellers Inn Tours & Travels | Kodaikanal Taxi Service & Tours">
+  <meta name="twitter:description" content="Premium Kodaikanal taxi service, sightseeing tours, and airport transfers with trusted local drivers.">
+  <meta name="twitter:image" content="https://travellersinnkodaikanal.vercel.app/assets/hero_cab.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Travellers Inn Tours & Travels",
+    "url": "https://travellersinnkodaikanal.vercel.app/",
+    "telephone": "+91-9894119264",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kodaikanal",
+      "addressRegion": "Tamil Nadu",
+      "addressCountry": "India"
+    },
+    "description": "Trusted Kodaikanal taxi service provider offering sightseeing tours, airport transfers, and family-friendly hill travel packages.",
+    "areaServed": ["Kodaikanal", "Madurai", "Dindigul", "Coimbatore", "Trichy", "Chennai"],
+    "founder": "Sulthan Ibrahim",
+    "sameAs": ["https://wa.me/919894119264"]
+  }
+  </script>
+  
+  <!-- Font Awesome Icons & CSS Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Three.js 3D Engine Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Toast Container for Real-time Notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- HEADER & NAVIGATION -->
+  <header class="header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-mountain-sun"></i>
+          </div>
+          <div class="logo-text">
+            TRAVELLERS INN
+            <span>TOURS & TRAVELS • KODAIKANAL</span>
+          </div>
+        </a>
+
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#ceo" class="nav-link">CEO Spotlight</a></li>
+          <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#3d-map" class="nav-link">3D Route Map</a></li>
+          <li><a href="#fleet" class="nav-link">Fleet & Rates</a></li>
+          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+          <li><a href="#booking" class="nav-link">Book Now</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <div class="phone-badge">
+            <div class="pulse-dot"></div>
+            <i class="fa-solid fa-phone"></i>
+            <span>9894119264</span>
+          </div>
+          <a href="tel:9894119264" class="btn btn-call">
+            <i class="fa-solid fa-phone-flip"></i> Call Now
+          </a>
+          <button id="admin-login-btn" class="btn btn-outline" title="Owner Admin Portal">
+            <i class="fa-solid fa-user-gear"></i> Admin
+          </button>
+          <button class="mobile-nav-toggle" aria-label="Toggle Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH 3D WEBGL MOUNTAIN CANVAS -->
+  <section id="hero" class="hero">
+    <div id="hero-canvas-container"></div>
+
+    <div class="container">
+      <div class="hero-content-wrapper">
+        <div class="hero-text-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-shield-halved"></i> 30+ Years Kodaikanal Legacy
+          </div>
+          <h1 class="hero-title">
+            Luxury, Safe & <span class="highlight">Personalized Kodaikanal Travel</span>
+          </h1>
+          <p class="hero-description">
+            Discover Kodaikanal with a trusted local team offering premium airport transfers, scenic sightseeing, and hill-safe journeys crafted around your comfort, timing, and travel style.
+          </p>
+          <div class="hero-ctas">
+            <a href="#booking" class="btn btn-primary">
+              <i class="fa-solid fa-car-side"></i> Reserve Your Premium Ride
+            </a>
+            <a href="tel:9894119264" class="btn btn-call">
+              <i class="fa-solid fa-phone-volume"></i> Speak to Sulthan Ibrahim Now
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>30+</h3>
+              <p>Years Experience</p>
+            </div>
+            <div class="stat-item">
+              <h3>50,000+</h3>
+              <p>Happy Travellers</p>
+            </div>
+            <div class="stat-item">
+              <h3>100%</h3>
+              <p>Safe Hill Drivers</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-content">
+          <div class="hero-card-floating">
+            <img src="assets/hero_cab.jpg" alt="Travellers Inn Luxury SUV Cab Kodaikanal" class="hero-cab-img">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+              <div>
+                <h4 style="font-size:1.05rem; color:var(--bg-dark); font-weight:800; margin-bottom:4px;">Premium, Sanitized & Comfortable Fleet</h4>
+                <p style="font-size:0.82rem; color:var(--text-muted);">Innova Crysta • Etios • Tempo Traveller</p>
+              </div>
+              <span style="background:var(--forest-green); color:#fff; padding:7px 14px; border-radius:var(--radius-pill); font-size:0.82rem; font-weight:800;">
+                <i class="fa-solid fa-star" style="color:var(--sunset-gold);"></i> 4.9/5 Guest Rating
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNER / CEO SPOTLIGHT SECTION -->
+  <section id="ceo" class="section">
+    <div class="container">
+      <div class="ceo-section">
+        <div class="ceo-grid">
+          <div class="ceo-img-container">
+            <div class="ceo-icon-crest">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>SULTHAN IBRAHIM</span>
+            </div>
+            <div class="ceo-badge">
+              <i class="fa-solid fa-certificate"></i> Founder & CEO
+            </div>
+          </div>
+
+          <div class="ceo-content">
+            <span class="section-subtitle" style="color:var(--sky-blue-light);">LEADERSHIP & TRUST</span>
+            <h2>Meet Sulthan Ibrahim</h2>
+            <div class="ceo-role">Founder & Chief Tour Specialist • 30+ Years Service</div>
+            
+            <p class="ceo-quote">
+              "When you travel with TRAVELLERS INN, you are not just hiring a vehicle—you are being welcomed by a local family. For over 30 years, I have personally ensured every guest experiences the true magic, safety, and tranquil beauty of Kodaikanal."
+            </p>
+
+            <p style="color:#cbd5e1; margin-bottom:26px; font-size:1rem; line-height:1.75;">
+              Sulthan Ibrahim has personally built our network of courteous, expert mountain drivers who know every corner, shortcut, viewpoint, and weather nuance in the Western Ghats.
+            </p>
+
+            <div class="ceo-contact-bar">
+              <a href="tel:9894119264" class="btn btn-call">
+                <i class="fa-solid fa-phone"></i> Speak with Sulthan: 9894119264
+              </a>
+              <button type="button" class="btn btn-primary open-wa-modal" style="background:#25d366;">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section id="why-us" class="section" style="background:#fff;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">THE TRAVELLERS INN ADVANTAGE</span>
+        <h2 class="section-title">Why Choose Travellers Inn?</h2>
+        <p class="section-desc">We combine three decades of local Kodaikanal heritage with modern, comfortable tourist vehicles and unmatched hospitality.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-award"></i>
+          </div>
+          <h3>30 Years of Experience</h3>
+          <p>Decades of navigating Kodaikanal’s steep mountain terrain safely in all weather conditions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <h3>Trusted Local Drivers</h3>
+          <p>Polite, punctual, verified local drivers who act as knowledgeable mountain guides.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-shield-cat"></i>
+          </div>
+          <h3>Safety First Standards</h3>
+          <p>Regularly inspected, clean, climate-controlled vehicles equipped with first-aid & emergency kits.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-couch"></i>
+          </div>
+          <h3>Comfortable Vehicles</h3>
+          <p>Spacious pushback seating, ample luggage room, and smooth suspension for hill bends.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+          <h3>Transparent Pricing</h3>
+          <p>Zero hidden charges, clear daily rates, and honest transparent billing guaranteed.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <h3>Personalized Service</h3>
+          <p>Customized itineraries tailored for honeymoon couples, family vacations, or corporate groups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION WITH KODAIKANAL TRAVEL PHOTOGRAPHY -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">OUR SPECIALIZED SERVICES</span>
+        <h2 class="section-title">Complete Kodaikanal Taxi & Tour Solutions</h2>
+        <p class="section-desc">From Madurai to Kodaikanal taxi transfers to local sightseeing and premium hill tours, we handle every detail of your journey with comfort and reliability.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Local Kodaikanal Sightseeing</h3>
+            <p>Full Day & Half Day Circuit Tours</p>
+          </div>
+          <div class="service-body">
+            <img src="assets/kodai_lake.jpg" alt="Kodaikanal Lake Boating Sightseeing" class="card-photo-img">
+            <ul class="service-list">
+              <li><i class="fa-solid fa-circle-check"></i> Coaker’s Walk & Bryant Park</li>
+              <li><i class="fa-solid fa-circle-check"></i> Kodaikanal Lake Boating</li>
+              <li><i class="fa-solid fa-circle-check"></i> Pillar Rocks & Guna Caves</li>
+              <li><i class="fa-solid fa-circle-check"></i> Pine Forest & Silent Valley View</li>
+            </ul>
+            <a href="#booking" class="btn btn-outline" style="width:100%;">Book Sightseeing</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header" style="background:linear-gradient(135deg, var(--sky-blue), var(--primary-teal));">
+            <h3>Airport & Train Pickup / Drop</h3>
+            <p>24/7 Punctual Transfers</p>
+          </div>
+          <div class="service-body">
+            <img src="assets/innova_fleet.jpg" alt="Airport Taxi Transfer Fleet" class="card-photo-img">
+            <ul class="service-list">
+              <li><i class="fa-solid fa-circle-check"></i> Madurai Airport & Railway Station</li>
+              <li><i class="fa-solid fa-circle-check"></i> Dindigul Junction Station</li>
+              <li><i class="fa-solid fa-circle-check"></i> Coimbatore Airport (CJB)</li>
+              <li><i class="fa-solid fa-circle-check"></i> Trichy & Chennai Connections</li>
+            </ul>
+            <a href="#booking" class="btn btn-outline" style="width:100%;">Book Pickup / Drop</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-header" style="background:linear-gradient(135deg, var(--sunset-amber), var(--sunset-gold)); color:#000;">
+            <h3>Honeymoon Special Packages</h3>
+            <p>Romantic Misty Mountain Escapes</p>
+          </div>
+          <div class="service-body">
+            <img src="assets/pine_forest.jpg" alt="Kodaikanal Pine Forest Honeymoon Escapes" class="card-photo-img">
+            <ul class="service-list">
+              <li><i class="fa-solid fa-circle-check"></i> Flower Decorated Luxury Sedan/SUV</li>
+              <li><i class="fa-solid fa-circle-check"></i> Quiet Secret Scenic Viewpoints</li>
+              <li><i class="fa-solid fa-circle-check"></i> Sunset Point at Dolphin’s Nose</li>
+              <li><i class="fa-solid fa-circle-check"></i> Flexible & Relaxed Pace</li>
+            </ul>
+            <a href="#booking" class="btn btn-primary" style="width:100%;">Explore Package</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D MAP & ROUTE EXPERIENCE SECTION -->
+  <section id="3d-map" class="map-section">
+    <div class="container">
+      <div class="section-header" style="color:#fff;">
+        <span class="section-subtitle" style="color:var(--sky-blue-light);">INTERACTIVE 3D TOUR GUIDE</span>
+        <h2 class="section-title" style="color:#fff;">Explore Kodaikanal’s Iconic Spots</h2>
+        <p class="section-desc" style="color:#cbd5e1;">Click any location node in the 3D map or select from the list below to preview top destinations on your tour itinerary.</p>
+      </div>
+
+      <div class="map-container-wrapper">
+        <div id="map-canvas-container"></div>
+
+        <div class="map-landmarks-list">
+          <div class="landmark-item active" data-id="coakers-walk" onclick="selectLandmark('coakers-walk')">
+            <div class="landmark-info">
+              <h4>Coaker's Walk</h4>
+              <p>1-km paved path with cloud views • 1.2 km from town</p>
+            </div>
+            <span class="landmark-tag">Must Visit</span>
+          </div>
+
+          <div class="landmark-item" data-id="kodaikanal-lake" onclick="selectLandmark('kodaikanal-lake')">
+            <div class="landmark-info">
+              <h4>Kodaikanal Lake</h4>
+              <p>Star-shaped lake, boating & cycling • 0.5 km from town</p>
+            </div>
+            <span class="landmark-tag">Iconic</span>
+          </div>
+
+          <div class="landmark-item" data-id="pillar-rocks" onclick="selectLandmark('pillar-rocks')">
+            <div class="landmark-info">
+              <h4>Pillar Rocks</h4>
+              <p>400-ft vertical granite rocks in mist • 7.5 km from town</p>
+            </div>
+            <span class="landmark-tag">Scenic</span>
+          </div>
+
+          <div class="landmark-item" data-id="guna-caves" onclick="selectLandmark('guna-caves')">
+            <div class="landmark-info">
+              <h4>Guna Caves (Devil's Kitchen)</h4>
+              <p>Deep rock crevices & pine trees • 8.2 km from town</p>
+            </div>
+            <span class="landmark-tag">Adventure</span>
+          </div>
+
+          <div class="landmark-item" data-id="pine-forest" onclick="selectLandmark('pine-forest')">
+            <div class="landmark-info">
+              <h4>Pine Forest</h4>
+              <p>Serene 100-year-old timber woods • 6.0 km from town</p>
+            </div>
+            <span class="landmark-tag">Photography</span>
+          </div>
+
+          <div class="landmark-item" data-id="silver-cascade" onclick="selectLandmark('silver-cascade')">
+            <div class="landmark-info">
+              <h4>Silver Cascade Falls</h4>
+              <p>180-ft entrance waterfall • 8.0 km on Ghat road</p>
+            </div>
+            <span class="landmark-tag">Waterfall</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLEET & FARE ESTIMATOR SECTION -->
+  <section id="fleet" class="section" style="background:#fff;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">OUR VEHICLE FLEET & FARES</span>
+        <h2 class="section-title">Clean, Comfortable Kodaikanal Tourist Cabs</h2>
+        <p class="section-desc">Choose from luxury sedans, spacious SUVs, or family tempo travellers maintained to perfection for airport transfers, sightseeing, and outstation travel.</p>
+      </div>
+
+      <div class="fleet-grid">
+        <div class="fleet-card">
+          <span class="fleet-badge">Sedan Taxi</span>
+          <h3>Swift Dzire / Toyota Etios</h3>
+          <p style="color:var(--text-muted); font-size:0.92rem;">Ideal for couples, solo travellers, and small families up to 4 passengers.</p>
+          <div class="fleet-specs">
+            <div class="spec-item">
+              <span>Seating</span>
+              <strong>4 + 1 Driver</strong>
+            </div>
+            <div class="spec-item">
+              <span>Luggage</span>
+              <strong>2 Large Bags</strong>
+            </div>
+            <div class="spec-item">
+              <span>Aircon</span>
+              <strong>Climate Control</strong>
+            </div>
+            <div class="spec-item">
+              <span>Local Rate</span>
+              <strong>₹2,800 / Day</strong>
+            </div>
+          </div>
+          <a href="#booking" class="btn btn-outline" style="width:100%;">Select Sedan</a>
+        </div>
+
+        <div class="fleet-card" style="border-color:var(--primary-teal); box-shadow:var(--shadow-md);">
+          <span class="fleet-badge" style="background:var(--primary-teal); color:#fff;">Most Popular</span>
+          <h3>Toyota Innova Crysta SUV</h3>
+          <p style="color:var(--text-muted); font-size:0.92rem;">Premium luxury SUV for family comfort, superior hill suspension & legroom.</p>
+          <div class="fleet-specs">
+            <div class="spec-item">
+              <span>Seating</span>
+              <strong>6/7 + 1 Driver</strong>
+            </div>
+            <div class="spec-item">
+              <span>Luggage</span>
+              <strong>4 Large Bags</strong>
+            </div>
+            <div class="spec-item">
+              <span>Aircon</span>
+              <strong>Dual AC Blower</strong>
+            </div>
+            <div class="spec-item">
+              <span>Local Rate</span>
+              <strong>₹4,200 / Day</strong>
+            </div>
+          </div>
+          <a href="#booking" class="btn btn-primary" style="width:100%;">Select Innova</a>
+        </div>
+
+        <div class="fleet-card">
+          <span class="fleet-badge">Group Van</span>
+          <h3>Tempo Traveller (12-14 Seater)</h3>
+          <p style="color:var(--text-muted); font-size:0.92rem;">Spacious van for group tours, corporate outings, and large joint families.</p>
+          <div class="fleet-specs">
+            <div class="spec-item">
+              <span>Seating</span>
+              <strong>12-14 + 1 Driver</strong>
+            </div>
+            <div class="spec-item">
+              <span>Luggage</span>
+              <strong>Roof Carrier</strong>
+            </div>
+            <div class="spec-item">
+              <span>Comfort</span>
+              <strong>Reclining Seats</strong>
+            </div>
+            <div class="spec-item">
+              <span>Local Rate</span>
+              <strong>₹6,800 / Day</strong>
+            </div>
+          </div>
+          <a href="#booking" class="btn btn-outline" style="width:100%;">Select Tempo</a>
+        </div>
+      </div>
+
+      <!-- INSTANT FARE ESTIMATOR BOX -->
+      <div class="calc-box">
+        <h3 style="font-size:1.65rem; color:var(--bg-dark); margin-bottom:22px; text-align:center;">
+          <i class="fa-solid fa-calculator" style="color:var(--primary-teal);"></i> Instant Transparent Fare Estimator (Server API Driven)
+        </h3>
+        
+        <div class="calc-grid">
+          <div class="form-group">
+            <label for="calc-trip-type">Trip Type</label>
+            <select id="calc-trip-type" class="form-control">
+              <option value="sightseeing">Local Kodaikanal Sightseeing</option>
+              <option value="pickup">Airport / Station Pickup or Drop</option>
+              <option value="outstation">Outstation Package (Madurai/CBE)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-vehicle">Vehicle Preference</label>
+            <select id="calc-vehicle" class="form-control">
+              <option value="sedan">Swift Dzire / Etios Sedan (4 Seater)</option>
+              <option value="innova" selected>Toyota Innova Crysta SUV (6-7 Seater)</option>
+              <option value="tempo">Tempo Traveller (12 Seater)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="calc-days">Number of Days</label>
+            <input type="number" id="calc-days" class="form-control" value="1" min="1" max="15">
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div>
+            <div style="font-size:0.92rem; opacity:0.95;">Estimated Total Transparent Fare:</div>
+            <div id="calc-total-price" class="calc-price">₹4,200</div>
+          </div>
+          <a href="#booking" class="btn btn-call" style="font-size:1.05rem;">
+            Book This Estimate Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">TESTIMONIALS & REVIEWS</span>
+        <h2 class="section-title">What Our Travellers Say</h2>
+        <p class="section-desc">Read genuine reviews from families, honeymoon couples, and group travellers.</p>
+      </div>
+
+      <div id="testimonials-grid" class="testimonials-grid">
+        <!-- Loaded dynamically from app.js via REST API -->
+      </div>
+
+      <!-- WRITE A REVIEW FORM -->
+      <div style="max-width:720px; margin:54px auto 0 auto; background:#fff; padding:36px; border-radius:var(--radius-lg); border:1px solid var(--border-light); box-shadow:var(--shadow-sm);">
+        <h3 style="font-size:1.35rem; margin-bottom:18px; color:var(--bg-dark);">Share Your Travel Experience</h3>
+        <form id="review-form">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+            <input type="text" id="rev-name" class="form-control" placeholder="Your Name" required>
+            <input type="text" id="rev-location" class="form-control" placeholder="City (e.g. Chennai, Bangalore)">
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+            <input type="text" id="rev-trip" class="form-control" placeholder="Trip Type (e.g. Family Sightseeing)">
+            <select id="rev-rating" class="form-control">
+              <option value="5">⭐⭐⭐⭐⭐ (5 / 5 Excellent)</option>
+              <option value="4">⭐⭐⭐⭐ (4 / 5 Very Good)</option>
+            </select>
+          </div>
+          <textarea id="rev-text" class="form-control" rows="3" placeholder="Write your review about Sulthan Ibrahim sir & Travellers Inn..." required style="margin-bottom:18px;"></textarea>
+          <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING & CONTACT FORM SECTION -->
+  <section id="booking" class="section" style="background:linear-gradient(180deg, #f0fdf4 0%, #e0f2fe 100%);">
+    <div class="container">
+      <div class="booking-wrapper">
+        <div class="booking-form-side">
+          <span class="section-subtitle">QUICK ONLINE BOOKING</span>
+          <h2 style="font-size:2.05rem; margin-bottom:8px; color:var(--bg-dark);">Reserve Your Kodaikanal Escape</h2>
+          <p style="color:var(--text-muted); margin-bottom:26px; font-size:0.98rem;">Tell us your plans and we’ll turn your trip into a seamless, luxury-ready experience with transparent pricing and direct support from Sulthan Ibrahim.</p>
+
+          <form id="booking-form">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+              <div class="form-group">
+                <label for="bk-name">Full Name *</label>
+                <input type="text" id="bk-name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
+              </div>
+              <div class="form-group">
+                <label for="bk-phone" style="color:var(--forest-green); font-weight:800;">
+                  <i class="fa-solid fa-phone"></i> Mobile / WhatsApp Number *
+                </label>
+                <input type="tel" id="bk-phone" class="form-control" placeholder="e.g. 9876543210" required style="border:2px solid var(--primary-teal); background:#f0fdf4;">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+              <div class="form-group">
+                <label for="bk-email">Email Address</label>
+                <input type="email" id="bk-email" class="form-control" placeholder="name@example.com">
+              </div>
+              <div class="form-group">
+                <label for="bk-service">Select Service *</label>
+                <select id="bk-service" class="form-control">
+                  <option value="Local Kodaikanal Sightseeing">Local Kodaikanal Sightseeing</option>
+                  <option value="Airport/Station Pickup Drop">Airport / Train Station Transfer</option>
+                  <option value="Honeymoon Special Package">Honeymoon Special Package</option>
+                  <option value="Family Group Tour">Family / Group Tour</option>
+                  <option value="Custom Kodaikanal Package">Customized Kodaikanal Package</option>
+                  <option value="Reliable Driver Service">Reliable Driver Service</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px;">
+              <div class="form-group">
+                <label for="bk-vehicle">Vehicle Type</label>
+                <select id="bk-vehicle" class="form-control">
+                  <option value="Swift Dzire Sedan">Swift Dzire Sedan</option>
+                  <option value="Toyota Innova Crysta" selected>Toyota Innova Crysta</option>
+                  <option value="Tempo Traveller 12-Seater">Tempo Traveller 12-Seater</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="bk-date">Date of Travel *</label>
+                <input type="date" id="bk-date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="bk-passengers">Passengers</label>
+                <input type="number" id="bk-passengers" class="form-control" value="2" min="1" max="20">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:18px;">
+              <label for="bk-pickup">Pickup Location / Address</label>
+              <input type="text" id="bk-pickup" class="form-control" placeholder="e.g. Kodaikanal Bus Stand / Madurai Airport / Hotel Name">
+            </div>
+
+            <div class="form-group" style="margin-bottom:26px;">
+              <label for="bk-notes">Special Requirements / Notes</label>
+              <textarea id="bk-notes" class="form-control" rows="2" placeholder="Any specific places to visit, flower decoration request, etc."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; padding:15px; font-size:1.05rem;">
+              <i class="fa-brands fa-whatsapp"></i> Confirm Booking & Connect on WhatsApp
+            </button>
+          </form>
+        </div>
+
+        <div class="booking-info-side">
+          <div>
+            <h3 style="font-size:1.8rem; margin-bottom:12px; color:#fff;">Contact Our Travel Desk</h3>
+            <p style="color:#cbd5e1; margin-bottom:28px; font-size:0.95rem;">Have questions before booking? Our team is ready to help with premium transfers, customized itineraries, and immediate trip assistance.</p>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4 style="font-size:1.05rem; color:#fff;">Phone Hotline</h4>
+                <p style="font-size:1.2rem; font-weight:800; color:var(--sunset-gold);">9894119264</p>
+                <p style="font-size:0.82rem; color:#94a3b8;">Available 24/7 for guest assistance</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fa-solid fa-user-check"></i>
+              </div>
+              <div>
+                <h4 style="font-size:1.05rem; color:#fff;">Owner / Managing Director</h4>
+                <p style="font-size:1.05rem; font-weight:700; color:#fff;">Sulthan Ibrahim</p>
+                <p style="font-size:0.82rem; color:#94a3b8;">30+ Years Local Kodaikanal Pioneer</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 style="font-size:1.05rem; color:#fff;">Main Service Areas</h4>
+                <p style="font-size:0.92rem; color:#e2e8f0;">Kodaikanal • Madurai • Dindigul • Coimbatore • Trichy • Chennai</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:rgba(255,255,255,0.08); padding:22px; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,0.16);">
+            <i class="fa-solid fa-shield-heart" style="color:var(--sunset-gold); font-size:1.5rem; margin-bottom:10px;"></i>
+            <h4 style="color:#fff; font-size:1rem; margin-bottom:6px;">100% Guest Satisfaction Guarantee</h4>
+            <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.6;">Punctual pickups, transparent fares, immaculate vehicles, and respectful hill-driving expertise every time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOATING QUICK CONTACT BUTTONS -->
+  <div class="floating-contact-bar">
+    <button type="button" class="floating-btn floating-whatsapp open-wa-modal" title="Chat on WhatsApp with Sulthan Ibrahim">
+      <i class="fa-brands fa-whatsapp"></i>
+    </button>
+    <a href="tel:9894119264" class="floating-btn floating-call" title="Call Now: 9894119264">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+  </div>
+
+  <!-- INTERACTIVE QUICK WHATSAPP BOOKING MODAL -->
+  <div id="whatsapp-modal" class="modal-overlay">
+    <div class="modal-card" style="max-width:520px; border-top: 6px solid #25d366;">
+      <button id="whatsapp-modal-close" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div style="width: 60px; height: 60px; background: #25d366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 12px auto; box-shadow: 0 8px 22px rgba(37,211,102,0.38);">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <h3 style="font-size: 1.65rem; color: var(--bg-dark); margin-bottom: 4px;">Quick WhatsApp Tour Booking</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Connect directly with Founder & CEO <strong>Sulthan Ibrahim</strong></p>
+      </div>
+
+      <form id="whatsapp-quick-form">
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label for="wa-name">Your Full Name *</label>
+          <input type="text" id="wa-name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label for="wa-phone" style="color:var(--forest-green); font-weight:800; font-size:0.95rem;">
+            <i class="fa-solid fa-phone"></i> Phone / WhatsApp Number (Required) *
+          </label>
+          <input type="tel" id="wa-phone" class="form-control" placeholder="e.g. 9876543210 or +91 98765 43210" required style="border:2px solid var(--primary-teal); background:#f0fdf4; font-weight:700;">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label for="wa-place">Place of Visit / Destination *</label>
+          <input type="text" id="wa-place" class="form-control" placeholder="e.g. Full Day Sightseeing / Mannavanur Lake" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 22px;">
+          <label for="wa-pickup">Pickup Location *</label>
+          <input type="text" id="wa-pickup" class="form-control" placeholder="e.g. Kodaikanal Bus Stand / Madurai Airport" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; background: #25d366; font-size: 1.05rem; padding: 14px; box-shadow: 0 8px 20px rgba(37,211,102,0.35);">
+          <i class="fa-brands fa-whatsapp"></i> Save Phone & Send to Sulthan Ibrahim (9894119264)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN BOOKINGS MANAGEMENT & ANALYTICS MODAL -->
+  <div id="admin-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button id="admin-modal-close" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+      <h2 style="font-size:1.9rem; color:var(--bg-dark); margin-bottom:6px;">
+        <i class="fa-solid fa-user-gear" style="color:var(--primary-teal);"></i> Sulthan Ibrahim - Admin Booking Manager
+      </h2>
+      <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:20px;">Real-time management dashboard connected to server REST database.</p>
+
+      <!-- Admin Stats Summary Bar -->
+      <div class="admin-stats-grid">
+        <div class="admin-stat-card">
+          <h4>Total Bookings</h4>
+          <div id="stat-total-bookings">0</div>
+        </div>
+        <div class="admin-stat-card">
+          <h4>Confirmed</h4>
+          <div id="stat-confirmed-bookings">0</div>
+        </div>
+        <div class="admin-stat-card">
+          <h4>Active Fleet</h4>
+          <div id="stat-active-fleet">15</div>
+        </div>
+      </div>
+
+      <!-- Filters Bar -->
+      <div style="display:flex; gap:16px; margin:20px 0; flex-wrap:wrap;">
+        <input type="text" id="admin-search" class="form-control" placeholder="Search by Guest Name, Phone, or Booking Ref..." style="flex-grow:1;">
+        <select id="admin-status-filter" class="form-control" style="width:180px;">
+          <option value="All">All Statuses</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Pending">Pending</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Ref ID</th>
+              <th>Customer</th>
+              <th>Service</th>
+              <th>Vehicle</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-bookings-tbody">
+            <!-- Rendered dynamically by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="color:#fff; margin-bottom:18px;">
+            <div class="logo-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+            <div class="logo-text" style="color:#fff;">
+              TRAVELLERS INN
+              <span style="color:var(--sunset-gold);">TOURS & TRAVELS</span>
+            </div>
+          </div>
+          <p style="font-size:0.92rem; margin-bottom:18px; line-height:1.65;">
+            Kodaikanal's most trusted travel agency led by Sulthan Ibrahim. 30 years of excellence, reliable local drivers, luxury cabs, and memorable hill journeys.
+          </p>
+          <div style="font-weight:700; color:#fff;">
+            <i class="fa-solid fa-phone" style="color:var(--sunset-gold);"></i> Direct: 9894119264
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#ceo">Owner Sulthan Ibrahim</a></li>
+            <li><a href="#why-us">Why Choose Us</a></li>
+            <li><a href="#services">Sightseeing & Pickup Services</a></li>
+            <li><a href="#3d-map">3D Route Map</a></li>
+            <li><a href="#booking">Book Your Ride</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Service Areas</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Kodaikanal Town & Sightseeing</a></li>
+            <li><a href="#services">Madurai Airport & Railway Taxi</a></li>
+            <li><a href="#services">Dindigul Junction Cab Transfer</a></li>
+            <li><a href="#services">Coimbatore Airport Transfer</a></li>
+            <li><a href="#services">Trichy & Chennai Outstation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Office Address</h4>
+          <p style="font-size:0.92rem; margin-bottom:14px;">
+            <strong>TRAVELLERS INN TOURS AND TRAVELS</strong><br>
+            Main Town Centre, Kodaikanal,<br>
+            Tamil Nadu - 624101, India.
+          </p>
+          <p style="font-size:0.92rem; color:#fff; font-weight:700;">
+            Founder/CEO: Sulthan Ibrahim<br>
+            Phone: <a href="tel:9894119264" style="color:var(--sunset-gold);">9894119264</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>TRAVELLERS INN TOURS AND TRAVELS</strong> (Kodaikanal). Fully Responsive (Phone, Tablet, PC View). Powered by REST API Backend.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/3d-mountain-scene.js"></script>
+  <script src="js/3d-map-experience.js"></script>
+</body>
+</html>

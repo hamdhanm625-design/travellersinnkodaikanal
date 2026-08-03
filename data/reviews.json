@@ -1,0 +1,29 @@
+[
+  {
+    "id": "REV-1",
+    "name": "Karthik Subramanian",
+    "location": "Chennai, TN",
+    "rating": 5,
+    "review": "Sulthan Ibrahim sir was amazing! His 30 years of Kodaikanal driving experience showed on every steep hair-pin curve. Punctual pickup from Dindigul station and smooth local tour.",
+    "date": "July 2026",
+    "trip": "Family Sightseeing Tour"
+  },
+  {
+    "id": "REV-2",
+    "name": "Dr. Aris & Meera",
+    "location": "Bengaluru, KA",
+    "rating": 5,
+    "review": "Booked the Honeymoon Special Package with Travellers Inn. Transparent rates, super clean Innova Crysta, and the driver knew all the quiet, non-crowded secret view points in Kodai!",
+    "date": "June 2026",
+    "trip": "Honeymoon Package"
+  },
+  {
+    "id": "REV-3",
+    "name": "Venkat & Friends",
+    "location": "Coimbatore, TN",
+    "rating": 5,
+    "review": "We hired a 12-seater Tempo Traveller for a 3-day group trip. Incredible hospitality from Sulthan Ibrahim brother. 100% recommended for anyone visiting Kodaikanal!",
+    "date": "July 2026",
+    "trip": "Group Travel"
+  }
+]
