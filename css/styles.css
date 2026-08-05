@@ -1136,7 +1136,7 @@ a:focus-visible,
 .back-to-top {
   position: fixed;
   right: 28px;
-  bottom: 108px;
+  bottom: 162px;
   width: 54px;
   height: 54px;
   border-radius: 50%;
@@ -1152,6 +1152,13 @@ a:focus-visible,
   transform: translateY(20px);
   transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
   z-index: 1100;
+}
+
+@media (max-width: 767px) {
+  .back-to-top {
+    right: 28px;
+    bottom: 176px;
+  }
 }
 
 .back-to-top.visible {
