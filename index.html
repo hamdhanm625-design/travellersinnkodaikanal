@@ -9,6 +9,11 @@
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="author" content="Travellers Inn Tours & Travels">
   <meta name="theme-color" content="#0d9488">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/png">
   <link rel="canonical" href="https://travellersinnkodaikanal.vercel.app/">
   <meta property="og:title" content="Travellers Inn Tours & Travels | Kodaikanal Taxi Service & Tours">
   <meta property="og:description" content="Reliable Kodaikanal taxi service, airport transfers, sightseeing tours, and premium hill travel from Travellers Inn.">
@@ -48,17 +53,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Toast Container for Real-time Notifications -->
-  <div id="toast-container" class="toast-container"></div>
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
 
   <!-- HEADER & NAVIGATION -->
   <header class="header">
     <div class="container">
-      <div class="nav-wrapper">
-        <a href="#" class="logo">
+      <div class="nav-wrapper" role="navigation" aria-label="Primary navigation">
+        <a href="#hero" class="logo">
           <div class="logo-icon">
-            <i class="fa-solid fa-mountain-sun"></i>
+            <img src="assets/logo.png" alt="Travellers Inn Logo" class="site-logo" onerror="this.src='assets/logo.svg'">
           </div>
           <div class="logo-text">
             TRAVELLERS INN
@@ -66,15 +72,15 @@
           </div>
         </a>
 
-        <ul class="nav-menu">
-          <li><a href="#hero" class="nav-link active">Home</a></li>
-          <li><a href="#ceo" class="nav-link">CEO Spotlight</a></li>
-          <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#3d-map" class="nav-link">3D Route Map</a></li>
-          <li><a href="#fleet" class="nav-link">Fleet & Rates</a></li>
-          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
-          <li><a href="#booking" class="nav-link">Book Now</a></li>
+        <ul id="primary-navigation" class="nav-menu" role="menubar" aria-label="Primary navigation links">
+          <li role="none"><a href="#hero" class="nav-link active" role="menuitem">Home</a></li>
+          <li role="none"><a href="#ceo" class="nav-link" role="menuitem">CEO Spotlight</a></li>
+          <li role="none"><a href="#why-us" class="nav-link" role="menuitem">Why Choose Us</a></li>
+          <li role="none"><a href="#services" class="nav-link" role="menuitem">Services</a></li>
+          <li role="none"><a href="#3d-map" class="nav-link" role="menuitem">3D Route Map</a></li>
+          <li role="none"><a href="#fleet" class="nav-link" role="menuitem">Fleet & Rates</a></li>
+          <li role="none"><a href="#testimonials" class="nav-link" role="menuitem">Reviews</a></li>
+          <li role="none"><a href="#booking" class="nav-link" role="menuitem">Book Now</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -89,13 +95,14 @@
           <button id="admin-login-btn" class="btn btn-outline" title="Owner Admin Portal">
             <i class="fa-solid fa-user-gear"></i> Admin
           </button>
-          <button class="mobile-nav-toggle" aria-label="Toggle Menu">
+          <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-controls="primary-navigation" aria-label="Toggle primary navigation" aria-expanded="false">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
       </div>
     </div>
   </header>
+  <main id="main-content">
 
   <!-- HERO SECTION WITH 3D WEBGL MOUNTAIN CANVAS -->
   <section id="hero" class="hero">
@@ -140,16 +147,16 @@
 
         <div class="hero-visual-content">
           <div class="hero-card-floating">
-            <img src="assets/hero_cab.jpg" alt="Travellers Inn Luxury SUV Cab Kodaikanal" class="hero-cab-img">
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-              <div>
-                <h4 style="font-size:1.05rem; color:var(--bg-dark); font-weight:800; margin-bottom:4px;">Premium, Sanitized & Comfortable Fleet</h4>
-                <p style="font-size:0.82rem; color:var(--text-muted);">Innova Crysta • Etios • Tempo Traveller</p>
-              </div>
-              <span style="background:var(--forest-green); color:#fff; padding:7px 14px; border-radius:var(--radius-pill); font-size:0.82rem; font-weight:800;">
-                <i class="fa-solid fa-star" style="color:var(--sunset-gold);"></i> 4.9/5 Guest Rating
-              </span>
+            <img src="assets/hero_cab.jpg" loading="lazy" alt="Travellers Inn Luxury SUV Cab Kodaikanal" class="hero-cab-img">
+            <div class="hero-card-meta">
+            <div>
+              <h4>Premium, Sanitized & Comfortable Fleet</h4>
+              <p>Innova Crysta • Etios • Tempo Traveller</p>
             </div>
+            <span class="hero-card-badge">
+              <i class="fa-solid fa-star"></i> 4.9/5 Guest Rating
+            </span>
+          </div>
           </div>
         </div>
       </div>
@@ -172,15 +179,11 @@
           </div>
 
           <div class="ceo-content">
-            <span class="section-subtitle" style="color:var(--sky-blue-light);">LEADERSHIP & TRUST</span>
+            <span class="section-subtitle section-subtitle--light">LEADERSHIP & TRUST</span>
             <h2>Meet Sulthan Ibrahim</h2>
             <div class="ceo-role">Founder & Chief Tour Specialist • 30+ Years Service</div>
             
-            <p class="ceo-quote">
-              "When you travel with TRAVELLERS INN, you are not just hiring a vehicle—you are being welcomed by a local family. For over 30 years, I have personally ensured every guest experiences the true magic, safety, and tranquil beauty of Kodaikanal."
-            </p>
-
-            <p style="color:#cbd5e1; margin-bottom:26px; font-size:1rem; line-height:1.75;">
+            <p class="ceo-description">
               Sulthan Ibrahim has personally built our network of courteous, expert mountain drivers who know every corner, shortcut, viewpoint, and weather nuance in the Western Ghats.
             </p>
 
@@ -188,7 +191,7 @@
               <a href="tel:9894119264" class="btn btn-call">
                 <i class="fa-solid fa-phone"></i> Speak with Sulthan: 9894119264
               </a>
-              <button type="button" class="btn btn-primary open-wa-modal" style="background:#25d366;">
+              <button type="button" class="btn btn-primary btn-success open-wa-modal">
                 <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
               </button>
             </div>
@@ -199,7 +202,7 @@
   </section>
 
   <!-- WHY CHOOSE US SECTION -->
-  <section id="why-us" class="section" style="background:#fff;">
+  <section id="why-us" class="section section--white">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">THE TRAVELLERS INN ADVANTAGE</span>
@@ -275,48 +278,48 @@
             <p>Full Day & Half Day Circuit Tours</p>
           </div>
           <div class="service-body">
-            <img src="assets/kodai_lake.jpg" alt="Kodaikanal Lake Boating Sightseeing" class="card-photo-img">
+            <img src="assets/kodai_lake.jpg" loading="lazy" alt="Kodaikanal Lake Boating Sightseeing" class="card-photo-img">
             <ul class="service-list">
               <li><i class="fa-solid fa-circle-check"></i> Coaker’s Walk & Bryant Park</li>
               <li><i class="fa-solid fa-circle-check"></i> Kodaikanal Lake Boating</li>
               <li><i class="fa-solid fa-circle-check"></i> Pillar Rocks & Guna Caves</li>
               <li><i class="fa-solid fa-circle-check"></i> Pine Forest & Silent Valley View</li>
             </ul>
-            <a href="#booking" class="btn btn-outline" style="width:100%;">Book Sightseeing</a>
+            <a href="#booking" class="btn btn-outline btn-full">Book Sightseeing</a>
           </div>
         </div>
 
         <div class="service-card">
-          <div class="service-header" style="background:linear-gradient(135deg, var(--sky-blue), var(--primary-teal));">
+          <div class="service-header service-header--blue">
             <h3>Airport & Train Pickup / Drop</h3>
             <p>24/7 Punctual Transfers</p>
           </div>
           <div class="service-body">
-            <img src="assets/innova_fleet.jpg" alt="Airport Taxi Transfer Fleet" class="card-photo-img">
+            <img src="assets/innova_fleet.jpg" loading="lazy" alt="Airport Taxi Transfer Fleet" class="card-photo-img">
             <ul class="service-list">
               <li><i class="fa-solid fa-circle-check"></i> Madurai Airport & Railway Station</li>
               <li><i class="fa-solid fa-circle-check"></i> Dindigul Junction Station</li>
               <li><i class="fa-solid fa-circle-check"></i> Coimbatore Airport (CJB)</li>
               <li><i class="fa-solid fa-circle-check"></i> Trichy & Chennai Connections</li>
             </ul>
-            <a href="#booking" class="btn btn-outline" style="width:100%;">Book Pickup / Drop</a>
+            <a href="#booking" class="btn btn-outline btn-full">Book Pickup / Drop</a>
           </div>
         </div>
 
         <div class="service-card">
-          <div class="service-header" style="background:linear-gradient(135deg, var(--sunset-amber), var(--sunset-gold)); color:#000;">
+          <div class="service-header service-header--sunset">
             <h3>Honeymoon Special Packages</h3>
             <p>Romantic Misty Mountain Escapes</p>
           </div>
           <div class="service-body">
-            <img src="assets/pine_forest.jpg" alt="Kodaikanal Pine Forest Honeymoon Escapes" class="card-photo-img">
+            <img src="assets/pine_forest.jpg" loading="lazy" alt="Kodaikanal Pine Forest Honeymoon Escapes" class="card-photo-img">
             <ul class="service-list">
               <li><i class="fa-solid fa-circle-check"></i> Flower Decorated Luxury Sedan/SUV</li>
               <li><i class="fa-solid fa-circle-check"></i> Quiet Secret Scenic Viewpoints</li>
               <li><i class="fa-solid fa-circle-check"></i> Sunset Point at Dolphin’s Nose</li>
               <li><i class="fa-solid fa-circle-check"></i> Flexible & Relaxed Pace</li>
             </ul>
-            <a href="#booking" class="btn btn-primary" style="width:100%;">Explore Package</a>
+            <a href="#booking" class="btn btn-primary btn-full">Explore Package</a>
           </div>
         </div>
       </div>
@@ -326,17 +329,17 @@
   <!-- 3D MAP & ROUTE EXPERIENCE SECTION -->
   <section id="3d-map" class="map-section">
     <div class="container">
-      <div class="section-header" style="color:#fff;">
-        <span class="section-subtitle" style="color:var(--sky-blue-light);">INTERACTIVE 3D TOUR GUIDE</span>
-        <h2 class="section-title" style="color:#fff;">Explore Kodaikanal’s Iconic Spots</h2>
-        <p class="section-desc" style="color:#cbd5e1;">Click any location node in the 3D map or select from the list below to preview top destinations on your tour itinerary.</p>
+<div class="section-header section-header--light">
+        <span class="section-subtitle">INTERACTIVE 3D TOUR GUIDE</span>
+        <h2 class="section-title">Explore Kodaikanal’s Iconic Spots</h2>
+        <p class="section-desc section-desc--light">Click any location node in the 3D map or select from the list below to preview top destinations on your tour itinerary.</p>
       </div>
 
       <div class="map-container-wrapper">
         <div id="map-canvas-container"></div>
 
         <div class="map-landmarks-list">
-          <div class="landmark-item active" data-id="coakers-walk" onclick="selectLandmark('coakers-walk')">
+          <div class="landmark-item active" data-landmark="coakers-walk" role="button" tabindex="0">
             <div class="landmark-info">
               <h4>Coaker's Walk</h4>
               <p>1-km paved path with cloud views • 1.2 km from town</p>
@@ -344,7 +347,7 @@
             <span class="landmark-tag">Must Visit</span>
           </div>
 
-          <div class="landmark-item" data-id="kodaikanal-lake" onclick="selectLandmark('kodaikanal-lake')">
+          <div class="landmark-item" data-landmark="kodaikanal-lake" role="button" tabindex="0">
             <div class="landmark-info">
               <h4>Kodaikanal Lake</h4>
               <p>Star-shaped lake, boating & cycling • 0.5 km from town</p>
@@ -352,7 +355,7 @@
             <span class="landmark-tag">Iconic</span>
           </div>
 
-          <div class="landmark-item" data-id="pillar-rocks" onclick="selectLandmark('pillar-rocks')">
+          <div class="landmark-item" data-landmark="pillar-rocks" role="button" tabindex="0">
             <div class="landmark-info">
               <h4>Pillar Rocks</h4>
               <p>400-ft vertical granite rocks in mist • 7.5 km from town</p>
@@ -360,7 +363,7 @@
             <span class="landmark-tag">Scenic</span>
           </div>
 
-          <div class="landmark-item" data-id="guna-caves" onclick="selectLandmark('guna-caves')">
+          <div class="landmark-item" data-landmark="guna-caves" role="button" tabindex="0">
             <div class="landmark-info">
               <h4>Guna Caves (Devil's Kitchen)</h4>
               <p>Deep rock crevices & pine trees • 8.2 km from town</p>
@@ -368,7 +371,7 @@
             <span class="landmark-tag">Adventure</span>
           </div>
 
-          <div class="landmark-item" data-id="pine-forest" onclick="selectLandmark('pine-forest')">
+          <div class="landmark-item" data-landmark="pine-forest" role="button" tabindex="0">
             <div class="landmark-info">
               <h4>Pine Forest</h4>
               <p>Serene 100-year-old timber woods • 6.0 km from town</p>
@@ -376,7 +379,7 @@
             <span class="landmark-tag">Photography</span>
           </div>
 
-          <div class="landmark-item" data-id="silver-cascade" onclick="selectLandmark('silver-cascade')">
+          <div class="landmark-item" data-landmark="silver-cascade" role="button" tabindex="0">
             <div class="landmark-info">
               <h4>Silver Cascade Falls</h4>
               <p>180-ft entrance waterfall • 8.0 km on Ghat road</p>
@@ -389,7 +392,7 @@
   </section>
 
   <!-- FLEET & FARE ESTIMATOR SECTION -->
-  <section id="fleet" class="section" style="background:#fff;">
+  <section id="fleet" class="section section--white">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">OUR VEHICLE FLEET & FARES</span>
@@ -401,7 +404,7 @@
         <div class="fleet-card">
           <span class="fleet-badge">Sedan Taxi</span>
           <h3>Swift Dzire / Toyota Etios</h3>
-          <p style="color:var(--text-muted); font-size:0.92rem;">Ideal for couples, solo travellers, and small families up to 4 passengers.</p>
+          <p class="fleet-description">Ideal for couples, solo travellers, and small families up to 4 passengers.</p>
           <div class="fleet-specs">
             <div class="spec-item">
               <span>Seating</span>
@@ -420,13 +423,13 @@
               <strong>₹2,800 / Day</strong>
             </div>
           </div>
-          <a href="#booking" class="btn btn-outline" style="width:100%;">Select Sedan</a>
+          <a href="#booking" class="btn btn-outline btn-full">Select Sedan</a>
         </div>
 
-        <div class="fleet-card" style="border-color:var(--primary-teal); box-shadow:var(--shadow-md);">
-          <span class="fleet-badge" style="background:var(--primary-teal); color:#fff;">Most Popular</span>
+        <div class="fleet-card fleet-card--highlighted">
+          <span class="fleet-badge fleet-badge--highlight">Most Popular</span>
           <h3>Toyota Innova Crysta SUV</h3>
-          <p style="color:var(--text-muted); font-size:0.92rem;">Premium luxury SUV for family comfort, superior hill suspension & legroom.</p>
+          <p class="fleet-description">Premium luxury SUV for family comfort, superior hill suspension & legroom.</p>
           <div class="fleet-specs">
             <div class="spec-item">
               <span>Seating</span>
@@ -445,13 +448,13 @@
               <strong>₹4,200 / Day</strong>
             </div>
           </div>
-          <a href="#booking" class="btn btn-primary" style="width:100%;">Select Innova</a>
+          <a href="#booking" class="btn btn-primary btn-full">Select Innova</a>
         </div>
 
         <div class="fleet-card">
           <span class="fleet-badge">Group Van</span>
           <h3>Tempo Traveller (12-14 Seater)</h3>
-          <p style="color:var(--text-muted); font-size:0.92rem;">Spacious van for group tours, corporate outings, and large joint families.</p>
+          <p class="fleet-description">Spacious van for group tours, corporate outings, and large joint families.</p>
           <div class="fleet-specs">
             <div class="spec-item">
               <span>Seating</span>
@@ -470,14 +473,14 @@
               <strong>₹6,800 / Day</strong>
             </div>
           </div>
-          <a href="#booking" class="btn btn-outline" style="width:100%;">Select Tempo</a>
+          <a href="#booking" class="btn btn-outline btn-full">Select Tempo</a>
         </div>
       </div>
 
       <!-- INSTANT FARE ESTIMATOR BOX -->
       <div class="calc-box">
-        <h3 style="font-size:1.65rem; color:var(--bg-dark); margin-bottom:22px; text-align:center;">
-          <i class="fa-solid fa-calculator" style="color:var(--primary-teal);"></i> Instant Transparent Fare Estimator (Server API Driven)
+        <h3 class="calc-box-title">
+          <i class="fa-solid fa-calculator"></i> Instant Transparent Fare Estimator (Server API Driven)
         </h3>
         
         <div class="calc-grid">
@@ -507,10 +510,10 @@
 
         <div class="calc-result">
           <div>
-            <div style="font-size:0.92rem; opacity:0.95;">Estimated Total Transparent Fare:</div>
+            <div class="calc-note">Estimated Total Transparent Fare:</div>
             <div id="calc-total-price" class="calc-price">₹4,200</div>
           </div>
-          <a href="#booking" class="btn btn-call" style="font-size:1.05rem;">
+          <a href="#booking" class="btn btn-call btn-full btn-large">
             Book This Estimate Now
           </a>
         </div>
@@ -532,21 +535,21 @@
       </div>
 
       <!-- WRITE A REVIEW FORM -->
-      <div style="max-width:720px; margin:54px auto 0 auto; background:#fff; padding:36px; border-radius:var(--radius-lg); border:1px solid var(--border-light); box-shadow:var(--shadow-sm);">
-        <h3 style="font-size:1.35rem; margin-bottom:18px; color:var(--bg-dark);">Share Your Travel Experience</h3>
+      <div class="review-card">
+        <h3>Share Your Travel Experience</h3>
         <form id="review-form">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+          <div class="form-grid-2">
             <input type="text" id="rev-name" class="form-control" placeholder="Your Name" required>
             <input type="text" id="rev-location" class="form-control" placeholder="City (e.g. Chennai, Bangalore)">
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+          <div class="form-grid-2">
             <input type="text" id="rev-trip" class="form-control" placeholder="Trip Type (e.g. Family Sightseeing)">
             <select id="rev-rating" class="form-control">
               <option value="5">⭐⭐⭐⭐⭐ (5 / 5 Excellent)</option>
               <option value="4">⭐⭐⭐⭐ (4 / 5 Very Good)</option>
             </select>
           </div>
-          <textarea id="rev-text" class="form-control" rows="3" placeholder="Write your review about Sulthan Ibrahim sir & Travellers Inn..." required style="margin-bottom:18px;"></textarea>
+          <textarea id="rev-text" class="form-control rev-textarea" rows="3" placeholder="Write your review about Sulthan Ibrahim sir & Travellers Inn..." required></textarea>
           <button type="submit" class="btn btn-primary">Submit Review</button>
         </form>
       </div>
@@ -554,29 +557,29 @@
   </section>
 
   <!-- BOOKING & CONTACT FORM SECTION -->
-  <section id="booking" class="section" style="background:linear-gradient(180deg, #f0fdf4 0%, #e0f2fe 100%);">
+  <section id="booking" class="section section--booking">
     <div class="container">
       <div class="booking-wrapper">
         <div class="booking-form-side">
           <span class="section-subtitle">QUICK ONLINE BOOKING</span>
-          <h2 style="font-size:2.05rem; margin-bottom:8px; color:var(--bg-dark);">Reserve Your Kodaikanal Escape</h2>
-          <p style="color:var(--text-muted); margin-bottom:26px; font-size:0.98rem;">Tell us your plans and we’ll turn your trip into a seamless, luxury-ready experience with transparent pricing and direct support from Sulthan Ibrahim.</p>
+          <h2 class="booking-heading">Reserve Your Kodaikanal Escape</h2>
+          <p class="booking-description">Tell us your plans and we’ll turn your trip into a seamless, luxury-ready experience with transparent pricing and direct support from Sulthan Ibrahim.</p>
 
           <form id="booking-form">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+            <div class="form-grid-2">
               <div class="form-group">
                 <label for="bk-name">Full Name *</label>
                 <input type="text" id="bk-name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
               </div>
               <div class="form-group">
-                <label for="bk-phone" style="color:var(--forest-green); font-weight:800;">
+                <label for="bk-phone" class="label-highlight">
                   <i class="fa-solid fa-phone"></i> Mobile / WhatsApp Number *
                 </label>
-                <input type="tel" id="bk-phone" class="form-control" placeholder="e.g. 9876543210" required style="border:2px solid var(--primary-teal); background:#f0fdf4;">
+                <input type="tel" id="bk-phone" class="form-control input-highlight" placeholder="e.g. 9876543210" required>
               </div>
             </div>
 
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+            <div class="form-grid-2">
               <div class="form-group">
                 <label for="bk-email">Email Address</label>
                 <input type="email" id="bk-email" class="form-control" placeholder="name@example.com">
@@ -594,7 +597,7 @@
               </div>
             </div>
 
-            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; margin-bottom:18px;">
+            <div class="form-grid-3">
               <div class="form-group">
                 <label for="bk-vehicle">Vehicle Type</label>
                 <select id="bk-vehicle" class="form-control">
@@ -613,17 +616,17 @@
               </div>
             </div>
 
-            <div class="form-group" style="margin-bottom:18px;">
+            <div class="form-group">
               <label for="bk-pickup">Pickup Location / Address</label>
               <input type="text" id="bk-pickup" class="form-control" placeholder="e.g. Kodaikanal Bus Stand / Madurai Airport / Hotel Name">
             </div>
 
-            <div class="form-group" style="margin-bottom:26px;">
+            <div class="form-group form-group--spaced">
               <label for="bk-notes">Special Requirements / Notes</label>
               <textarea id="bk-notes" class="form-control" rows="2" placeholder="Any specific places to visit, flower decoration request, etc."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%; padding:15px; font-size:1.05rem;">
+            <button type="submit" class="btn btn-primary btn-full btn-large">
               <i class="fa-brands fa-whatsapp"></i> Confirm Booking & Connect on WhatsApp
             </button>
           </form>
@@ -631,17 +634,17 @@
 
         <div class="booking-info-side">
           <div>
-            <h3 style="font-size:1.8rem; margin-bottom:12px; color:#fff;">Contact Our Travel Desk</h3>
-            <p style="color:#cbd5e1; margin-bottom:28px; font-size:0.95rem;">Have questions before booking? Our team is ready to help with premium transfers, customized itineraries, and immediate trip assistance.</p>
+            <h3 class="booking-info-heading">Contact Our Travel Desk</h3>
+            <p class="booking-info-description">Have questions before booking? Our team is ready to help with premium transfers, customized itineraries, and immediate trip assistance.</p>
 
             <div class="info-item">
               <div class="info-icon">
                 <i class="fa-solid fa-phone"></i>
               </div>
               <div>
-                <h4 style="font-size:1.05rem; color:#fff;">Phone Hotline</h4>
-                <p style="font-size:1.2rem; font-weight:800; color:var(--sunset-gold);">9894119264</p>
-                <p style="font-size:0.82rem; color:#94a3b8;">Available 24/7 for guest assistance</p>
+                <h4 class="info-heading">Phone Hotline</h4>
+                <p class="info-value">9894119264</p>
+                <p class="info-caption">Available 24/7 for guest assistance</p>
               </div>
             </div>
 
@@ -650,9 +653,9 @@
                 <i class="fa-solid fa-user-check"></i>
               </div>
               <div>
-                <h4 style="font-size:1.05rem; color:#fff;">Owner / Managing Director</h4>
-                <p style="font-size:1.05rem; font-weight:700; color:#fff;">Sulthan Ibrahim</p>
-                <p style="font-size:0.82rem; color:#94a3b8;">30+ Years Local Kodaikanal Pioneer</p>
+                <h4 class="info-heading">Owner / Managing Director</h4>
+                <p class="info-value">Sulthan Ibrahim</p>
+                <p class="info-caption">30+ Years Local Kodaikanal Pioneer</p>
               </div>
             </div>
 
@@ -661,16 +664,16 @@
                 <i class="fa-solid fa-location-dot"></i>
               </div>
               <div>
-                <h4 style="font-size:1.05rem; color:#fff;">Main Service Areas</h4>
-                <p style="font-size:0.92rem; color:#e2e8f0;">Kodaikanal • Madurai • Dindigul • Coimbatore • Trichy • Chennai</p>
+                <h4 class="info-heading">Main Service Areas</h4>
+                <p class="info-caption info-caption--light">Kodaikanal • Madurai • Dindigul • Coimbatore • Trichy • Chennai</p>
               </div>
             </div>
           </div>
 
-          <div style="background:rgba(255,255,255,0.08); padding:22px; border-radius:var(--radius-md); border:1px solid rgba(255,255,255,0.16);">
-            <i class="fa-solid fa-shield-heart" style="color:var(--sunset-gold); font-size:1.5rem; margin-bottom:10px;"></i>
-            <h4 style="color:#fff; font-size:1rem; margin-bottom:6px;">100% Guest Satisfaction Guarantee</h4>
-            <p style="font-size:0.82rem; color:#cbd5e1; line-height:1.6;">Punctual pickups, transparent fares, immaculate vehicles, and respectful hill-driving expertise every time.</p>
+          <div class="booking-info-highlight">
+            <i class="fa-solid fa-shield-heart booking-info-highlight-icon"></i>
+            <h4 class="booking-info-highlight-heading">100% Guest Satisfaction Guarantee</h4>
+            <p class="booking-info-highlight-text">Punctual pickups, transparent fares, immaculate vehicles, and respectful hill-driving expertise every time.</p>
           </div>
         </div>
       </div>
@@ -679,51 +682,57 @@
 
   <!-- FLOATING QUICK CONTACT BUTTONS -->
   <div class="floating-contact-bar">
-    <button type="button" class="floating-btn floating-whatsapp open-wa-modal" title="Chat on WhatsApp with Sulthan Ibrahim">
+    <button type="button" class="floating-btn floating-whatsapp open-wa-modal" aria-label="Chat on WhatsApp with Sulthan Ibrahim">
       <i class="fa-brands fa-whatsapp"></i>
     </button>
     <a href="tel:9894119264" class="floating-btn floating-call" title="Call Now: 9894119264">
       <i class="fa-solid fa-phone"></i>
     </a>
   </div>
+  <button id="back-to-top" class="back-to-top" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+</main>
 
   <!-- INTERACTIVE QUICK WHATSAPP BOOKING MODAL -->
-  <div id="whatsapp-modal" class="modal-overlay">
-    <div class="modal-card" style="max-width:520px; border-top: 6px solid #25d366;">
+  <div id="whatsapp-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card modal-card--compact modal-card--success">
       <button id="whatsapp-modal-close" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
       
-      <div style="text-align: center; margin-bottom: 20px;">
-        <div style="width: 60px; height: 60px; background: #25d366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 12px auto; box-shadow: 0 8px 22px rgba(37,211,102,0.38);">
+      <div class="modal-header modal-header--success">
+        <div class="modal-icon">
           <i class="fa-brands fa-whatsapp"></i>
         </div>
-        <h3 style="font-size: 1.65rem; color: var(--bg-dark); margin-bottom: 4px;">Quick WhatsApp Tour Booking</h3>
-        <p style="font-size: 0.9rem; color: var(--text-muted);">Connect directly with Founder & CEO <strong>Sulthan Ibrahim</strong></p>
+        <div>
+          <h3>Quick WhatsApp Tour Booking</h3>
+          <p>Connect directly with Founder & CEO <strong>Sulthan Ibrahim</strong></p>
+        </div>
       </div>
 
       <form id="whatsapp-quick-form">
-        <div class="form-group" style="margin-bottom: 14px;">
+        <div class="form-group form-group--spaced">
           <label for="wa-name">Your Full Name *</label>
           <input type="text" id="wa-name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
         </div>
 
-        <div class="form-group" style="margin-bottom: 14px;">
-          <label for="wa-phone" style="color:var(--forest-green); font-weight:800; font-size:0.95rem;">
+        <div class="form-group form-group--spaced">
+          <label for="wa-phone" class="label-highlight">
             <i class="fa-solid fa-phone"></i> Phone / WhatsApp Number (Required) *
           </label>
-          <input type="tel" id="wa-phone" class="form-control" placeholder="e.g. 9876543210 or +91 98765 43210" required style="border:2px solid var(--primary-teal); background:#f0fdf4; font-weight:700;">
+          <input type="tel" id="wa-phone" class="form-control input-highlight" placeholder="e.g. 9876543210 or +91 98765 43210" required>
         </div>
 
-        <div class="form-group" style="margin-bottom: 14px;">
+        <div class="form-group form-group--spaced">
           <label for="wa-place">Place of Visit / Destination *</label>
           <input type="text" id="wa-place" class="form-control" placeholder="e.g. Full Day Sightseeing / Mannavanur Lake" required>
         </div>
 
-        <div class="form-group" style="margin-bottom: 22px;">
+        <div class="form-group form-group--spaced">
           <label for="wa-pickup">Pickup Location *</label>
           <input type="text" id="wa-pickup" class="form-control" placeholder="e.g. Kodaikanal Bus Stand / Madurai Airport" required>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; background: #25d366; font-size: 1.05rem; padding: 14px; box-shadow: 0 8px 20px rgba(37,211,102,0.35);">
+        <button type="submit" class="btn btn-primary btn-success btn-full btn-large">
           <i class="fa-brands fa-whatsapp"></i> Save Phone & Send to Sulthan Ibrahim (9894119264)
         </button>
       </form>
@@ -731,13 +740,13 @@
   </div>
 
   <!-- ADMIN BOOKINGS MANAGEMENT & ANALYTICS MODAL -->
-  <div id="admin-modal" class="modal-overlay">
+  <div id="admin-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-card">
       <button id="admin-modal-close" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
-      <h2 style="font-size:1.9rem; color:var(--bg-dark); margin-bottom:6px;">
-        <i class="fa-solid fa-user-gear" style="color:var(--primary-teal);"></i> Sulthan Ibrahim - Admin Booking Manager
+      <h2 class="admin-modal-heading">
+        <i class="fa-solid fa-user-gear admin-modal-icon"></i> Sulthan Ibrahim - Admin Booking Manager
       </h2>
-      <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:20px;">Real-time management dashboard connected to server REST database.</p>
+      <p class="admin-modal-subtitle">Real-time management dashboard connected to server REST database.</p>
 
       <!-- Admin Stats Summary Bar -->
       <div class="admin-stats-grid">
@@ -756,9 +765,9 @@
       </div>
 
       <!-- Filters Bar -->
-      <div style="display:flex; gap:16px; margin:20px 0; flex-wrap:wrap;">
-        <input type="text" id="admin-search" class="form-control" placeholder="Search by Guest Name, Phone, or Booking Ref..." style="flex-grow:1;">
-        <select id="admin-status-filter" class="form-control" style="width:180px;">
+      <div class="admin-filter-row">
+        <input type="text" id="admin-search" class="form-control" placeholder="Search by Guest Name, Phone, or Booking Ref...">
+        <select id="admin-status-filter" class="form-control admin-filter-select">
           <option value="All">All Statuses</option>
           <option value="Confirmed">Confirmed</option>
           <option value="Pending">Pending</option>
@@ -766,7 +775,7 @@
         </select>
       </div>
 
-      <div style="overflow-x:auto;">
+      <div class="admin-table-wrapper">
         <table class="admin-table">
           <thead>
             <tr>
@@ -792,18 +801,18 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="logo" style="color:#fff; margin-bottom:18px;">
-            <div class="logo-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-            <div class="logo-text" style="color:#fff;">
+          <div class="logo logo--white">
+            <div class="logo-icon"><img src="assets/logo.png" alt="Travellers Inn Logo" class="site-logo" onerror="this.src='assets/logo.svg'"></div>
+            <div class="logo-text logo-text--white">
               TRAVELLERS INN
-              <span style="color:var(--sunset-gold);">TOURS & TRAVELS</span>
+              <span class="logo-tag">TOURS & TRAVELS</span>
             </div>
           </div>
-          <p style="font-size:0.92rem; margin-bottom:18px; line-height:1.65;">
+          <p class="footer-text">
             Kodaikanal's most trusted travel agency led by Sulthan Ibrahim. 30 years of excellence, reliable local drivers, luxury cabs, and memorable hill journeys.
           </p>
-          <div style="font-weight:700; color:#fff;">
-            <i class="fa-solid fa-phone" style="color:var(--sunset-gold);"></i> Direct: 9894119264
+          <div class="footer-contact">
+            <i class="fa-solid fa-phone footer-phone-icon"></i> Direct: 9894119264
           </div>
         </div>
 
@@ -832,14 +841,14 @@
 
         <div class="footer-col">
           <h4>Office Address</h4>
-          <p style="font-size:0.92rem; margin-bottom:14px;">
+          <p class="footer-text footer-text--compact">
             <strong>TRAVELLERS INN TOURS AND TRAVELS</strong><br>
             Main Town Centre, Kodaikanal,<br>
             Tamil Nadu - 624101, India.
           </p>
-          <p style="font-size:0.92rem; color:#fff; font-weight:700;">
+          <p class="footer-text footer-text--compact">
             Founder/CEO: Sulthan Ibrahim<br>
-            Phone: <a href="tel:9894119264" style="color:var(--sunset-gold);">9894119264</a>
+            Phone: <a href="tel:9894119264" class="footer-link-highlight">9894119264</a>
           </p>
         </div>
       </div>

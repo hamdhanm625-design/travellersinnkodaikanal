@@ -187,9 +187,14 @@
     const lm = landmarksData.find((item) => item.id === id);
     if (!lm) return;
 
-    // Highlight HTML list item
+    // Highlight HTML list item and announce selected location
     document.querySelectorAll('.landmark-item').forEach((el) => {
-      el.classList.toggle('active', el.dataset.id === id);
+      const isActive = el.dataset.landmark === id;
+      el.classList.toggle('active', isActive);
+      el.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      if (isActive) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     });
 
     // Pan 3D camera towards landmark

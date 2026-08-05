@@ -5,17 +5,20 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initLandmarkInteractions();
   initFareCalculator();
   initBookingForm();
   initWhatsAppModal();
   initReviewForm();
+  initBackToTop();
   initAdminModal();
   loadCustomerReviews();
+  initGlobalKeyboardShortcuts();
 });
 
-const API_BASE = window.location.origin.includes('5000')
-  ? '/api'
-  : 'http://localhost:5000/api';
+const API_BASE = window.location.protocol === 'file:'
+  ? 'http://localhost:5001/api'
+  : '/api';
 
 // TOAST NOTIFICATION SYSTEM (BUG-FREE SAFEGUARD)
 window.showToast = function (message, type = 'success') {
@@ -25,6 +28,8 @@ window.showToast = function (message, type = 'success') {
 
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
     toast.innerHTML = `<span>${message}</span>`;
     container.appendChild(toast);
 
@@ -63,6 +68,16 @@ function initNavbar() {
     }
   }
 
+  const sectionLinks = Array.from(document.querySelectorAll('.nav-link'));
+  const sections = sectionLinks
+    .map((link) => {
+      const href = link.getAttribute('href');
+      if (!href?.startsWith('#')) return null;
+      const id = href.slice(1);
+      return document.getElementById(id);
+    })
+    .filter(Boolean);
+
   if (toggle && navMenu) {
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -70,12 +85,18 @@ function initNavbar() {
       setMenuState(isOpen);
     });
 
-    document.querySelectorAll('.nav-link').forEach((link) => {
+    sectionLinks.forEach((link) => {
       link.addEventListener('click', () => setMenuState(false));
     });
 
     document.addEventListener('click', (e) => {
       if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !toggle.contains(e.target)) {
+        setMenuState(false);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
         setMenuState(false);
       }
     });
@@ -86,6 +107,82 @@ function initNavbar() {
       }
     });
   }
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            sectionLinks.forEach((link) => {
+              link.classList.toggle(
+                'active',
+                link.getAttribute('href') === `#${entry.target.id}`
+              );
+            });
+          }
+        });
+      },
+      { rootMargin: '-35% 0px -55% 0px', threshold: 0.2 }
+    );
+    sections.forEach((section) => observer.observe(section));
+  }
+}
+
+function initLandmarkInteractions() {
+  document.querySelectorAll('.landmark-item').forEach((item) => {
+    item.addEventListener('click', () => {
+      const id = item.dataset.landmark;
+      if (id && window.selectLandmark) window.selectLandmark(id);
+    });
+
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const id = item.dataset.landmark;
+        if (id && window.selectLandmark) window.selectLandmark(id);
+      }
+    });
+  });
+}
+
+function initBackToTop() {
+  const button = document.getElementById('back-to-top');
+  if (!button) return;
+
+  window.addEventListener('scroll', () => {
+    button.classList.toggle('visible', window.scrollY > 360);
+  });
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+function initGlobalKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileToggle = document.querySelector('.mobile-nav-toggle');
+    const whatsappModal = document.getElementById('whatsapp-modal');
+    const adminModal = document.getElementById('admin-modal');
+
+    if (navMenu?.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+      mobileToggle?.setAttribute('aria-expanded', 'false');
+    }
+
+    if (whatsappModal?.classList.contains('active')) {
+      whatsappModal.classList.remove('active');
+      whatsappModal.setAttribute('aria-hidden', 'true');
+    }
+
+    if (adminModal?.classList.contains('active')) {
+      adminModal.classList.remove('active');
+      adminModal.setAttribute('aria-hidden', 'true');
+    }
+  });
 }
 
 // INTERACTIVE QUICK WHATSAPP BOOKING MODAL (CLEAN & NEAT PAYLOAD)
@@ -101,6 +198,7 @@ function initWhatsAppModal() {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
       const phoneInput = document.getElementById('wa-phone');
       if (phoneInput) setTimeout(() => phoneInput.focus(), 200);
     });
@@ -109,8 +207,29 @@ function initWhatsAppModal() {
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
     });
   }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  modal.addEventListener('transitionend', () => {
+    if (!modal.classList.contains('active')) {
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
 
   // Handle Quick Form Submission & Send Clean Neat WhatsApp Payload
   form.addEventListener('submit', async (e) => {
@@ -182,18 +301,17 @@ function initWhatsAppModal() {
     const waUrl = `https://wa.me/919894119264?text=${encodeURIComponent(cleanNeatMessage)}`;
 
     showToast('Opening WhatsApp to connect with Sulthan Ibrahim...');
-    setTimeout(() => {
-      try {
-        const win = window.open(waUrl, '_blank');
-        if (!win || win.closed || typeof win.closed === 'undefined') {
-          window.location.href = waUrl;
-        }
-      } catch (err) {
+    modal.classList.remove('active');
+    form.reset();
+
+    try {
+      const win = window.open(waUrl, '_blank');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
         window.location.href = waUrl;
       }
-      modal.classList.remove('active');
-      form.reset();
-    }, 800);
+    } catch (err) {
+      window.location.href = waUrl;
+    }
   });
 }
 
@@ -306,17 +424,16 @@ function initBookingForm() {
     const waUrl = `https://wa.me/919894119264?text=${encodeURIComponent(cleanMessage)}`;
 
     showToast('Redirecting to WhatsApp to chat with Sulthan Ibrahim...');
-    setTimeout(() => {
-      try {
-        const win = window.open(waUrl, '_blank');
-        if (!win || win.closed || typeof win.closed === 'undefined') {
-          window.location.href = waUrl;
-        }
-      } catch (err) {
+    form.reset();
+
+    try {
+      const win = window.open(waUrl, '_blank');
+      if (!win || win.closed || typeof win.closed === 'undefined') {
         window.location.href = waUrl;
       }
-      form.reset();
-    }, 1000);
+    } catch (err) {
+      window.location.href = waUrl;
+    }
   });
 }
 
@@ -415,6 +532,7 @@ function initAdminModal() {
     const pass = prompt('Enter Admin Passcode for Sulthan Ibrahim:');
     if (pass === 'sulthan123' || pass === '9894119264') {
       modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
       await loadAdminStats();
       await renderAdminBookings();
     } else if (pass) {
@@ -422,7 +540,24 @@ function initAdminModal() {
     }
   });
 
-  closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  modal.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  });
 
   if (searchInput) searchInput.addEventListener('input', () => renderAdminBookings());
   if (statusFilter) statusFilter.addEventListener('change', () => renderAdminBookings());
