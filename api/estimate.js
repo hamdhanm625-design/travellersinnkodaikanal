@@ -17,9 +17,9 @@ module.exports = (req, res) => {
   const type = body.type || 'sightseeing';
 
   const rates = {
-    sedan: { base: 2200, perDay: 2800, name: "Swift Dzire / Toyota Etios Sedan" },
-    innova: { base: 3500, perDay: 4200, name: "Toyota Innova Crysta Luxury SUV" },
-    tempo: { base: 5500, perDay: 6800, name: "Tempo Traveller (12-Seater)" }
+    sedan: { base: 2200, perDay: 2500, name: "Swift Dzire / Toyota Etios Sedan" },
+    innova: { base: 3500, perDay: 3500, name: "Toyota Innova Crysta Luxury SUV" },
+    tempo: { base: 5000, perDay: 5000, name: "Tempo Traveller (12-Seater)" }
   };
 
   const selected = rates[vehicle] || rates.innova;

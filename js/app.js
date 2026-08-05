@@ -343,9 +343,9 @@ function initFareCalculator() {
       }
     } catch (err) {
       const rates = {
-        sedan: { base: 2200, perDay: 2800 },
-        innova: { base: 3500, perDay: 4200 },
-        tempo: { base: 5500, perDay: 6800 },
+        sedan: { base: 2200, perDay: 2500 },
+        innova: { base: 3500, perDay: 3500 },
+        tempo: { base: 5000, perDay: 5000 },
       };
       let total = (rates[vehicle] || rates.innova).perDay * days;
       if (type === 'pickup') total = (rates[vehicle] || rates.innova).base;
