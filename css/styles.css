@@ -1218,6 +1218,27 @@ a:focus-visible,
   font-size: 0.92rem;
 }
 
+.footer-email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.footer-email-icon {
+  color: var(--sunset-gold);
+  font-size: 1rem;
+}
+
+.footer-link-highlight {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-link-highlight:hover {
+  color: var(--sky-blue-light);
+}
+
 /* MODAL STYLES */
 .modal-overlay {
   position: fixed;
