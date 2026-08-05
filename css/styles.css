@@ -568,31 +568,39 @@ a:focus-visible,
 }
 
 .ceo-icon-crest {
+  position: relative;
   width: min(100%, 280px);
   height: 280px;
   margin: 0 auto;
   background: linear-gradient(135deg, rgba(13, 148, 136, 0.18), rgba(245, 158, 11, 0.18));
   border-radius: 28px;
   border: 3px solid rgba(255, 255, 255, 0.22);
-  display: grid;
-  place-items: center;
-  color: var(--sunset-gold);
+  overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.24);
 }
 
 .ceo-icon-crest span {
-  font-size: 1.1rem;
+  position: absolute;
+  inset: auto 0 0 0;
+  margin: 0;
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.48);
+  font-size: 1rem;
   font-weight: 800;
   color: #fff;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   font-family: var(--font-heading);
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .ceo-badge {
-  position: absolute;
-  bottom: -12px;
-  right: 50%;
-  transform: translateX(50%);
+  position: relative;
+  bottom: auto;
+  right: auto;
+  transform: none;
+  margin: 16px auto 0 auto;
   background: var(--sunset-gold);
   color: #000;
   padding: 10px 18px;
@@ -1143,7 +1151,7 @@ a:focus-visible,
   visibility: hidden;
   transform: translateY(20px);
   transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .back-to-top.visible {
