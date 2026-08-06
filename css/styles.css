@@ -100,7 +100,7 @@ section[id] {
 
 .guide-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
   margin-top: 32px;
 }
@@ -1538,6 +1538,7 @@ a:focus-visible,
 
   .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fleet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .testimonials-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .map-container-wrapper { grid-template-columns: 1.15fr 0.85fr; gap: 32px; }
@@ -1550,6 +1551,7 @@ a:focus-visible,
   .section { padding: 86px 0; }
   .why-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .guide-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .fleet-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .booking-wrapper { grid-template-columns: 1.15fr 0.85fr; }
