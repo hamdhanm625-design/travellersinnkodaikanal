@@ -94,6 +94,52 @@ section[id] {
   scroll-margin-top: 110px;
 }
 
+.page-shell {
+  padding-top: 120px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.guide-card,
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.guide-card h3,
+.guide-card h2 {
+  margin-bottom: 10px;
+}
+
+.guide-card p,
+.faq-answer {
+  color: var(--text-muted);
+}
+
+.faq-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--forest-green);
+}
+
+.faq-item p {
+  margin-top: 10px;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
