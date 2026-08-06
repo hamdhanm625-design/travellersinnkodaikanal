@@ -562,7 +562,11 @@ a:focus-visible,
   font-weight: 800;
   margin-bottom: 12px;
   position: relative;
-  display: inline-block;
+  display: block;
+  max-width: 100%;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .section-title::after {
@@ -1485,7 +1489,12 @@ a:focus-visible,
 
   .section { padding: 50px 0; }
   .section-header { margin-bottom: 28px; }
-  .section-title { font-size: 1.72rem; margin-bottom: 10px; }
+  .section-title {
+    font-size: 1.72rem;
+    margin-bottom: 10px;
+    line-height: 1.25;
+    padding: 0 2px;
+  }
   .section-desc { font-size: 0.95rem; }
 
   .ceo-grid { padding: 24px 16px; gap: 18px; }
